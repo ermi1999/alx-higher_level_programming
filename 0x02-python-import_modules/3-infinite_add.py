@@ -7,4 +7,4 @@ if __name__ == "__main__":
     converted = [eval(i) for i in arguments]
     for i in range(0, len(converted)):
         result = converted[i] + result
-    print (result)
+    print(result)
