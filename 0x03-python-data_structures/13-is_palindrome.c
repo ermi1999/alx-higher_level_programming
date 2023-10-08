@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "lists.h"
 
+int is_palindrome(listint_t **head);
 listint_t *backward_list(listint_t *head);
 
 /**
