@@ -13,22 +13,23 @@ int is_palindrome(listint_t **head);
  */
 listint_t *reverse_listint(listint_t **head)
 {
-    if (*head == NULL || (*head)->next == NULL)
-        return (*head);
+	if (*head == NULL || (*head)->next == NULL)
+		return (*head);
 
-    listint_t *prev = NULL;
-    listint_t *current = *head;
-    listint_t *next = NULL;
+	listint_t *prev = NULL;
+	listint_t *current = *head;
+	listint_t *next = NULL;
 
-    while (current != NULL) {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
+	while (current != NULL) 
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
 
-    *head = prev;
-    return (*head);
+	*head = prev;
+	return (*head);
 }
 
 /**
@@ -40,51 +41,55 @@ listint_t *reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-    if (*head == NULL || (*head)->next == NULL)
-        return (1);
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
-    listint_t *slow = *head;
-    listint_t *fast = *head;
-    listint_t *prev = NULL;
-    listint_t *mid = NULL;
-    listint_t *second_half = NULL;
-    int is_palindrome = 1;
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *prev = NULL;
+	listint_t *mid = NULL;
+	listint_t *second_half = NULL;
+	int is_palindrome = 1;
 
-    while (fast != NULL && fast->next != NULL) {
-        fast = fast->next->next;
-        prev = slow;
-        slow = slow->next;
-    }
+	while (fast != NULL && fast->next != NULL) 
+	{
+		fast = fast->next->next;
+		prev = slow;
+		slow = slow->next;
+	}
 
-    if (fast != NULL) {
-        mid = slow;
-        slow = slow->next;
-    }
+	if (fast != NULL) 
+	{
+		mid = slow;
+		slow = slow->next;
+	}
 
-    second_half = slow;
-    prev->next = NULL;
-    reverse_listint(&second_half);
+	second_half = slow;
+	prev->next = NULL;
+	reverse_listint(&second_half);
 
-    listint_t *p1 = *head;
-    listint_t *p2 = second_half;
+	listint_t *p1 = *head;
+	listint_t *p2 = second_half;
 
-    while (p1 != NULL && p2 != NULL) {
-        if (p1->n != p2->n) {
-            is_palindrome = 0;
-            break;
-        }
-        p1 = p1->next;
-        p2 = p2->next;
-    }
+	while (p1 != NULL && p2 != NULL) 
+	{
+		if (p1->n != p2->n) 
+		{
+			is_palindrome = 0;
+			break;
+		}
+		p1 = p1->next;
+		p2 = p2->next;
+	}
 
-    reverse_listint(&second_half);
-
-    if (mid != NULL) {
-        prev->next = mid;
-        mid->next = second_half;
-    } else {
-        prev->next = second_half;
-    }
-
-    return (is_palindrome);
+	reverse_listint(&second_half);
+	if (mid != NULL) 
+	{
+		prev->next = mid;
+		mid->next = second_half;
+	} else 
+	{
+		prev->next = second_half;
+	}
+	return (is_palindrome);
 }
