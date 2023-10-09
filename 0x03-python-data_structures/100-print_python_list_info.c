@@ -19,7 +19,7 @@ void print_python_list_info(PyObject *p)
 		PyObject *element = PyList_GetItem(p, i);
 		PyObject *element_type = PyObject_Type(element);
 
-		element_name = Py_TYPE(element_type)->tp_name;
+		element_name = ((PyTypeObject *)element_type)->tp_name;
 		printf("Element %ld: %s\n", i, element_name);
 		Py_DECREF(element_type);
 	}
