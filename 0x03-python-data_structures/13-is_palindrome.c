@@ -8,7 +8,9 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *prev = NULL;                                         listint_t *current = *head;                                     listint_t *next = NULL;
+	listint_t *prev = NULL;
+	listint_t *current = *head;
+	listint_t *next = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (*head);
@@ -75,16 +77,17 @@ int compare_lists(listint_t *list1, listint_t *list2)
  */
 int is_palindrome(listint_t **head)
 {
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
+	int is_palindrome;
 
 	listint_t *mid = NULL;
 	listint_t *second_half = NULL;
-
-	/* Move the variable declarations to the beginning of the function */
 	listint_t *prev = NULL;
+
 	listint_t *current = *head;
 	listint_t *next = NULL;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
 	mid = get_middle(*head);
 	second_half = mid->next;
@@ -97,15 +100,11 @@ int is_palindrome(listint_t **head)
 		prev = current;
 		current = next;
 	}
-
 	*head = prev;
-
-	int is_palindrome = compare_lists(*head, second_half);
-
+	is_palindrome = compare_lists(*head, second_half);
 	/* Restore the original list */
 	current = *head;
 	prev = NULL;
-
 	while (current != NULL)
 	{
 		next = current->next;
@@ -113,9 +112,7 @@ int is_palindrome(listint_t **head)
 		prev = current;
 		current = next;
 	}
-
 	*head = prev;
 	mid->next = second_half;
-
 	return (is_palindrome);
 }
