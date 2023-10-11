@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    import copy
     my_list = []
     i = 0
     for i, row in enumerate(matrix):
