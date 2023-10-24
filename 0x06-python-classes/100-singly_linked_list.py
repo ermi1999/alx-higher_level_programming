@@ -60,6 +60,7 @@ class Node:
 
 
 class SinglyLinkedList:
+    """ SinglyLinkedList defines a singly linked list """
     def __init__(self):
         """
         Initializes an empty SinglyLinkedList object.
