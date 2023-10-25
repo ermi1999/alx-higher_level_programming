@@ -47,7 +47,6 @@ class Square:
             i += 1
 
         return "\n".join(lines)
-        
 
     def area(self):
         """
