@@ -58,7 +58,7 @@ class Square:
             return self.__size > self1.__size
         raise TypeError("Unsupported operand")
 
-    def __lt__(self, self1):
+    def __ge__(self, self1):
         """
         Implements the greater than or equal to operator.
         """
