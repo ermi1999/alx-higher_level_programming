@@ -1,0 +1,49 @@
+The ``add_integer`` module
+==========================
+Using ``` add_integer ```
+-------------------------
+
+Import module:    
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Testing valid integer:    
+    >>> add_integer(6, 5)
+    11
+
+Testing floating numbers:    
+    >>> add_integer(6.5, 5.5)
+    11
+
+Testing negative number:    
+    >>> add_integer(100, -2)
+    98
+
+Testing three arguments:    
+    >>> add_integer(100, 100, 10)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Testing no arguments:    
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Testing None argument:    
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Testing invalid type argument:    
+    >>> add_integer("add_integer", 5.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Testing invalid type argument b:    
+    >>> add_integer(6.5, "add_integer")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
