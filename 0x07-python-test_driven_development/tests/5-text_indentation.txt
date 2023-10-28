@@ -1,0 +1,33 @@
+The ```text_indentation``` module
+================================
+Using ```text_indentation```
+----------------------------
+import module:
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Test for valid string:
+    >>> text_indentation("do you want some text?  here is some text. satisfied")
+    do you want some text?
+    <BLANKLINE>
+    here is some text.
+    <BLANKLINE>
+    satisfied
+
+Testing for invalid argument:
+    >>> text_indentation(2839)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing for only new line chars:
+    >>> text_indentation(":.?")
+    :
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+Testing for white spaces only:
+    >>> text_indentation("    ")
+    <BLANKLINE>
