@@ -91,8 +91,11 @@ class Rectangle():
         """
         if self.width == 0 or self.height == 0:
             return ""
-        symbol = str(self.print_symbol)
-        return (symbol * self.width + "\n") * self.height
+        symbols = ""
+        for i in range(self.__height):
+            symbols += str(self.print_symbol) * self.__width
+            symbols += "\n"
+        return symbols.rstrip()
 
     def __call__(self):
         """
@@ -100,8 +103,11 @@ class Rectangle():
         """
         if self.width == 0 or self.height == 0:
             return ""
-        symbol = str(self.print_symbol)
-        return (symbol * self.width + "\n") * self.height
+        symbols = ""
+        for i in range(self.__height):
+            symbols += str(self.print_symbol) * self.__width
+            symbols += "\n"
+        return symbols.rstrip()
 
     def __repr__(self):
         """
