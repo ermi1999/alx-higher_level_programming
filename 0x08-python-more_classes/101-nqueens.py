@@ -25,6 +25,7 @@ def solve(board, col):
             solve(board, col + 1)
             board[i][col] = 0
 
+
 def check(board, row, col):
     """
     Check if a queen can be placed at the given position (row, col)
