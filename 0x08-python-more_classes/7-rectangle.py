@@ -9,7 +9,7 @@ class Rectangle():
     Defines a class called rectangle.
     """
     number_of_instances = 0
-    print_symbol = None
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -91,14 +91,8 @@ class Rectangle():
         """
         if self.width == 0 or self.height == 0:
             return ""
-        symbols = ""
-        for i in range(self.__height):
-            if Rectangle.print_symbol == None:
-                symbols += "#" * self.__width
-            else:
-                symbols += Rectangle.print_symbol * self.__width
-            symbols += "\n"
-        return symbols.rstrip()
+        symbol = str(self.print_symbol)
+        return (symbol * self.width + "\n") * self.height
 
     def __call__(self):
         """
@@ -106,14 +100,8 @@ class Rectangle():
         """
         if self.width == 0 or self.height == 0:
             return ""
-        symbols = ""
-        for i in range(self.__height):
-            if Rectangle.print_symbol == None:
-                symbols += "#" * self.__width
-            else:
-                symbols += Rectangle.print_symbol * self.__width
-            symbols += "\n"
-        return symbols.rstrip()
+        symbol = str(self.print_symbol)
+        return (symbol * self.width + "\n") * self.height
 
     def __repr__(self):
         """
