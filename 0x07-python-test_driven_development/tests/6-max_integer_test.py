@@ -4,6 +4,7 @@
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
     """
     Unittest for the max integer module.
@@ -13,14 +14,14 @@ class TestMaxInteger(unittest.TestCase):
         This function checks for the return of empty list.
         """
         self.assertIsNone(max_integer())
-        
+
     def test_result_in_list(self):
         """
         this function checks if the return value is in the list.
         """
         my_list = [1, 2, 5, 78, 56, 88]
         self.assertIn(max_integer(my_list), my_list)
-    
+
     def test_negative_numbers(self):
         """
         this function tests for negative values
@@ -33,13 +34,13 @@ class TestMaxInteger(unittest.TestCase):
         This function tests for only one number.
         """
         self.assertEqual(max_integer([1]), 1)
-    
+
     def test_is_return_value(self):
         """
         This function tests for return value type.
         """
         self.assertIsInstance(max_integer([6, 7, 4]), int)
-    
+
     def test_positive_negative(self):
         """
         This function tests for mixed values.
@@ -60,9 +61,9 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_duplicate_numbers(self):
         """
-        This function tests for for duplicate numbers. 
+        This function tests for for duplicate numbers.
         """
-        self.assertEqual(max_integer([6, 7, 7,]), 7)
+        self.assertEqual(max_integer([6, 7, 7]), 7)
 
 
 if __name__ == "__main__":
