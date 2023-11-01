@@ -12,12 +12,13 @@ Test for valid array:
 
 Test for not list argument:
     >>> lazy_matrix_mul(134, [[1, 2], [3, 4]])
-    array([[134, 268],
-           [402, 536]])
+    Traceback (most recent call last):
+        ...
+    ValueError: Scalar operands are not allowed, use '*' instead
 
 Test for empty lists:
     >>> lazy_matrix_mul([[]], [])
-    array([False])
+    array([0.])
 
 Test for a list of list:
     >>> lazy_matrix_mul([34, 35], [[]])
