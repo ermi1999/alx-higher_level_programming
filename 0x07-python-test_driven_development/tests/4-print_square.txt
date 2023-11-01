@@ -33,3 +33,9 @@ Testing less than 0 float:
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
+
+Testing without argument:
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
