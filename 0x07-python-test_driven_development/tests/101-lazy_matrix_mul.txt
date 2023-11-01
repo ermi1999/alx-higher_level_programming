@@ -76,3 +76,15 @@ Test for if the numbers can be mutiplied:
     Traceback (most recent call last):
         ...
     ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
+
+Test for missing arguments:
+     >>> lazy_matrix_mul([[1, 2]])
+     Traceback (most recent call last):
+           ...
+     TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+
+     >>> lazy_matrix_mul()
+     Traceback (most recent call last):
+           ...
+     TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
