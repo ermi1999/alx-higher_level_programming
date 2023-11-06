@@ -3,9 +3,11 @@
 This program checks if an object is exactly an
 instance of the specified class.
 """
+
+
 def is_same_class(obj, a_class):
     """
-    This function returns True if the object is 
+    This function returns True if the object is
     exactly an instance of the specified class otherwize false.
     Args:
         obj: The object.
