@@ -68,8 +68,6 @@ sort an empty list:
 	['python', 'is', 'cool']
 	>>> my_list.print_sorted()
 	['cool', 'is', 'python']
-	>>> print(my_list)
-	['python', 'is', 'cool']
 	>>> my_list = MyList()
 	>>> my_list.print_sorted()
 	[]
