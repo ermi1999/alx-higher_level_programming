@@ -2,6 +2,8 @@
 """
 This program inititalizes a class called MyInt.
 """
+
+
 class MyInt(int):
     """
     Inverts == and != operators.
