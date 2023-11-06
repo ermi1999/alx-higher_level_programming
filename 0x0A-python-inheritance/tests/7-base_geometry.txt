@@ -46,3 +46,6 @@ TypeError: invalid must be an integer
 >>> bg.integer_validator({"something"}, (11, 22))
 Traceback (most recent call last):
 TypeError: {'something'} must be an integer
+>>> bg.integer_validator("invalid", True)
+Traceback (most recent call last):
+TypeError: invalid must be an integer
