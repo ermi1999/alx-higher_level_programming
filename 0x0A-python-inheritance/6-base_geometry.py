@@ -2,6 +2,8 @@
 """
 This program raises an error when area is called.
 """
+
+
 class BaseGeometry:
     """
     Initializes a class called BaseGeometry.
