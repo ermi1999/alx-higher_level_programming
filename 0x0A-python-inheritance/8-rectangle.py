@@ -1,30 +1,8 @@
 #!/usr/bin/python3
 """
-This program validets an integer.
+This program Initializes a class that is inherited from BaseGeometry.
 """
-
-
-class BaseGeometry:
-    """
-    Initializes a class called BaseGeometry.
-    """
-    def area(self):
-        """
-        Raises an exceprion when it is called.
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        This function validates an integer.
-        Args:
-            name: the name of the integer.
-            value: the integer.
-        """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
