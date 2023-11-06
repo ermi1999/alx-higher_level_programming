@@ -30,8 +30,16 @@ class BaseGeometry:
 class Rectangle(BaseGeometry):
     """
     Initializes a class that is inherited from BaseGeometry.
+    Args:
+        BaseGeometry: The class that is inherited from.
     """
     def __init__(self, width, height):
+        """
+        This function initializes width and height.
+        Args:
+            width: The width
+            height: The height.
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
