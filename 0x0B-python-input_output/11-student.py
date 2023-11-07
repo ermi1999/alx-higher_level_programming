@@ -24,14 +24,18 @@ class Student:
         """
         retrieves a dictionary representation of a Student instance
         """
-        if attrs is None:
-            return self.__dict__
-        else:
-            json_dict = {}
-            for attr in attrs:
-                if attr in self.__dict__:
-                    json_dict[attr] = self.__dict__[attr]
-            return json_dict
+        json = {}
+        i = 0
+        for name, value in self.__dict__.items():
+            if isinstance(value, (list, dict, str, int, bool)):
+                if (isinstance(attrs, list) and
+                        all(isinstance(item, str) for item in attrs)):
+                    for i in attrs:
+                        if i == name:
+                            json[name] = value
+                    continue
+                json[name] = value
+        return json
 
     def reload_from_json(self, json):
         """
