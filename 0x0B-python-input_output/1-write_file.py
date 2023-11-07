@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This program writes a string into a text fileand returns the number of characters written.
+This program writes a string into a text file
+and returns the number of characters written.
 """
 
 
