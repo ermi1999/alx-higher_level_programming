@@ -25,20 +25,20 @@ def stats():
                 status_code[words[7]] += 1
                 file_size += int(words[8])
 
-            print("File size: {:d}".format(file_size))
+            print("File size: {}".format(file_size))
             sort = sorted(status_code.keys())
             for key in sort:
                 if status_code[key] > 0:
-                    print("{:d}: {:d}".format(int(key), status_code[key]))
+                    print("{}: {}".format(int(key), status_code[key]))
 
             lines += 10
 
     except KeyboardInterrupt:
-        print("File size: {:d}".format(file_size))
+        print("File size: {}".format(file_size))
         sort = sorted(status_code.keys())
         for key in sort:
             if status_code[key] > 0:
-                print("{:d}: {:d}".format(int(key), status_code[key]))
+                print("{}: {}".format(key, status_code[key]))
         raise
 
 if __name__ == "__main__":
