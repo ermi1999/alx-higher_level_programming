@@ -5,7 +5,6 @@ This program reads stdin line by line and computes metrics.
 import sys
 
 
-
 def print_stats(status_code, size):
     """
     This function handle the printing of the stats.
@@ -50,6 +49,7 @@ def stats():
     except KeyboardInterrupt:
         print_stats(status_code, size)
         raise
+
 
 if __name__ == "__main__":
     stats()
