@@ -37,7 +37,7 @@ def stats():
             try:
                 size += int(line[8])
             except (IndexError, ValueError):
-                sys.exit(1)
+                raise
             try:
                 if line[7] in list(status_code.keys()):
                     status_code[line[7]] += 1
