@@ -12,13 +12,13 @@ def stats():
     lines = 10
 
     try:
-        while True:
-            status_code = {
-                '200': 0, '301': 0, '400': 0, '401': 0,
-                '403': 0, '404': 0, '405': 0, '500': 0
-            }
-            file_size = 0
+        status_code = {
+            '200': 0, '301': 0, '400': 0, '401': 0,
+            '403': 0, '404': 0, '405': 0, '500': 0
+        }
+        file_size = 0
 
+        while True:
             for i in range(lines):
                 line = sys.stdin.readline().strip()
                 words = line.split()
@@ -29,7 +29,7 @@ def stats():
             sort = sorted(status_code.keys())
             for key in sort:
                 if status_code[key] > 0:
-                    print("{}: {}".format(int(key), status_code[key]))
+                    print("{}: {}".format(key, status_code[key]))
 
             lines += 10
 
