@@ -23,15 +23,25 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @classmethod
-    def to_json_string(cls, list_dictionaries):
+    @staticmethod
+    def to_json_string(list_dictionaries):
         """
         This function returns the JSON string representation
         of list_dictionaries.
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
+            return json.dumps([])
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        This function returns the list of the
+        JSON string representation json_string
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -40,8 +50,66 @@ class Base:
         """
         dicts = []
         file_name = "{}.json".format(cls.__name__)
-        for obj in list_objs:
-            dicts.append(obj.to_dictionary())
-        json_str = Base.to_json_string(dicts)
+        if list_objs is not None:
+            for obj in list_objs:
+                dicts.append(obj.to_dictionary())
+        json_str = cls.to_json_string(dicts)
         with open(file_name, "w") as f:
             f.write(json_str)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        This function returns an instance with all attributes already set.
+        """
+        new = cls(4, 4)
+        new.update(**dictionary)
+        return new
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        This function returns a list of instances
+        """
+        file_name = "{}.json".format(cls.__name__)
+        try:
+            with open(file_name, "r") as f:
+                json_read = f.read()
+        except FileNotFoundError:
+            return []
+        dict_repr = cls.from_json_string(json_read)
+        array_of_instances = []
+        for item in dict_repr:
+            array_of_instances.append(cls.create(**item))
+        return array_of_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This funnction handles the writes list of objects to csv file.
+        """
+        dicts = []
+        file_name = "{}.csv".format(cls.__name__)
+        if list_objs is not None:
+            for obj in list_objs:
+                dicts.append(obj.to_dictionary())
+        json_str = cls.to_json_string(dicts)
+        with open(file_name, "w") as f:
+            f.write(json_str)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        This function loads a file and returns a list of instances.
+        """
+        file_name = "{}.csv".format(cls.__name__)
+        try:
+            with open(file_name, "r") as f:
+                json_read = f.read()
+        except FileNotFoundError:
+            return []
+        dict_repr = cls.from_json_string(json_read)
+        array_of_instances = []
+        for item in dict_repr:
+            array_of_instances.append(cls.create(**item))
+        return array_of_instances
