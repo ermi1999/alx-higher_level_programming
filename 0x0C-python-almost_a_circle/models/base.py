@@ -64,9 +64,10 @@ class Base:
         """
         This function returns an instance with all attributes already set.
         """
-        new = cls(4, 4)
-        new.update(**dictionary)
-        return new
+        if dictionary and dictionary != {}:
+            new = cls(4, 4)
+            new.update(**dictionary)
+            return new
 
     @classmethod
     def load_from_file(cls):
@@ -108,7 +109,7 @@ class Base:
         try:
             with open(file_name, "r") as f:
                 json_read = f.read()
-        except IOError:
+        except FileNotFoundError:
             return []
         dict_repr = cls.from_json_string(json_read)
         array_of_instances = []
