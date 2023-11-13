@@ -64,10 +64,12 @@ class Base:
         """
         This function returns an instance with all attributes already set.
         """
-        if dictionary and dictionary != {}:
+        if cls.__name__ == "Rectangle":
             new = cls(4, 4)
-            new.update(**dictionary)
-            return new
+        else:
+            new = cls(4)
+        new.update(**dictionary)
+        return new
 
     @classmethod
     def load_from_file(cls):
