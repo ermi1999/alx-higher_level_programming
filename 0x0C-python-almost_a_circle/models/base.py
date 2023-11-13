@@ -108,7 +108,7 @@ class Base:
         try:
             with open(file_name, "r") as f:
                 json_read = f.read()
-        except FileNotFoundError:
+        except IOError:
             return []
         dict_repr = cls.from_json_string(json_read)
         array_of_instances = []
