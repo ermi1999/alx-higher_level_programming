@@ -6,16 +6,10 @@ import unittest
 from models.base import Base
 
 
-class TestBase(unittest.TestCase):
+class IdInitialization(unittest.TestCase):
     """
     This class handles the test cases for Base module.
     """
-    def tearDown(self):
-        """
-        Reset the ID state to its default value
-        """
-        Base._Base__nb_objects = 0
- 
     def test_without_id(self):
         """
         This function test the result without id.
@@ -33,6 +27,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b.id, 25)
         b1 = Base(10)
         self.assertEqual(b1.id, 10)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -42,6 +42,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle("8", 2)
             Rectangle(2, 3, "7")
             Rectangle(5, 4, 3, "2")
+
     def test_negative_int(self):
         """
         This function tests the module by passing a negative value.
@@ -68,12 +69,12 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(12, 12, 12, 6, 56)
         rdict = r.to_dictionary()
         self.assertIsInstance(rdict, dict)
-    
+
     def test_update(self):
         """
         This function tests the method update in rectangle module with kwargs.
         """
-        r = Rectangle(1, 1, 1, 1, 1)
+        r = Rectangle(1, 1, 1, 1)
         r.update(width=2)
         self.assertEqual(r.width, 2)
         r.update(height=2)

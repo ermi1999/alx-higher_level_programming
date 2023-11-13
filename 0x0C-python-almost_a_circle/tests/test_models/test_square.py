@@ -1,80 +1,73 @@
 #!/usr/bin/python3
 """
-Test for square module.
+This program defines a class called Square.
 """
-import unittest
-from models.square import Square
+from models.rectangle import Rectangle
 
 
-class TestSquareModule(unittest.TestCase):
+class Square(Rectangle):
     """
-    This class handles the test square module.
+    This class initializes a object named Square that inherits from Rectangle.
     """
-    def test_getter_setter(self):
+    def __init__(self, size, x=0, y=0, id=None):
         """
-        This function tests the square module getters and setters.
+        This function initializes the instances of Square.
+        Args:
+            size: the size of the square.
+            x: the x axis.
+            y: the y axis.
+            id: The id of the object.
         """
-        s = Square(3, 3, 4, 50)
-        self.assertEqual(s.size, 3)
-        s.size = 8
-        self.assertEqual(s.size, 8)
-    def test_without_argument(self):
-        """
-        This function tests the module without argument.
-        """
-        with self.assertRaises(TypeError):
-            Square()
+        super().__init__(size, size, x, y, id)
 
-    def test_wrong_type(self):
+    def __str__(self):
         """
-        This function tests the module by giving the wrong type.
+        returns the string representation of the object.
         """
-        with self.assertRaises(TypeError):
-            s = Square(3, 3, 4, 46)
-            s.size = "3"
+        return ("[Square] ({}) {}/{} - {}"
+                .format(self.id, self.x, self.y, self.width))
 
-    def test_type(self):
+    @property
+    def size(self):
         """
-        This function tests the return type.
+        the size getter.
         """
-        s = Square(12, 12, 6, 57)
-        sdict = s.to_dictionary()
-        self.assertIsInstance(sdict, dict)
+        return self.width
 
-    def test_update_args(self):
+    @size.setter
+    def size(self, value):
         """
-        Test for update args.
+        the size setter.
         """
-        s = Square(4, 5, 8, 41)
-        s.update(7)
-        self.assertEqual(s.id, 7)
-        s.update(7, 2, 3, 4)
-        self.assertEqual(s.size, 2)
-        self.assertEqual(s.x, 3)
-        self.assertEqual(s.y, 4)
+        self.width = value
+        self.height = value
 
-    def test_update_kwargs(self):
+    def update(self, *args, **kwargs):
         """
-        This class handles the taste case for square update.
+        updates the attributes of this class.
         """
-        s = Square(6, 7, 8, 42)
-        s.update(id=43)
-        self.assertEqual(s.id, 43)
-        s.update(x=2, y=2, size=3)
-        self.assertEqual(s.x, 2)
-        self.assertEqual(s.y, 2)
-        self.assertEqual(s.size, 3)
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
-    def test_with_dict(self):
+    def to_dictionary(self):
         """
-        This function tests the kwargs of update with dict.
+        returns the dictionary representation of the class
         """
-        s = Square(9, 6, 5, 95)
-        s1 = Square(10, 11, 12, 96)
-        sdict = s.to_dictionary()
-        s1.update(**sdict)
-        self.assertEqual(s.id, 95)
-
-
-if __name__ == "__main__":
-    unittest.main()
+        dict_repr = {
+                'id': self.id,
+                'x': self.x,
+                'size': self.size,
+                'y': self.y
+        }
+        return dict_repr
