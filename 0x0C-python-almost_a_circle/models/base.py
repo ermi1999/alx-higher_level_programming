@@ -3,6 +3,8 @@
 This program intializes a class called Base.
 """
 import json
+import turtle
+import random
 
 
 class Base:
@@ -113,3 +115,41 @@ class Base:
         for item in dict_repr:
             array_of_instances.append(cls.create(**item))
         return array_of_instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        This function draws a shape to the screen using the turtle module.
+        """
+        bg_colors = ["#0D0D0D", "#021226", "#26241B", "#0D0D0D", "#0D0D0D"]
+        list_colors = ["#B6F2E1", "#053BA6", "#F2E8B6", "#BACBD9",
+                       "#F2B84B", "#F2F2F2", "#D9415D", "#8552F2"]
+        turtle_t = turtle.Turtle()
+        turtle_t.pensize(7)
+        turtle_t.screen.bgcolor(bg_colors[random.randrange(0, 5)])
+        for rectangle in list_rectangles:
+            turtle_t.color(list_colors[random.randrange(0, 8)])
+            turtle_t.showturtle()
+            turtle_t.up()
+            turtle_t.goto(rectangle.x, rectangle.y)
+            turtle_t.down()
+            for i in range(2):
+                turtle_t.forward(rectangle.width)
+                turtle_t.left(90)
+                turtle_t.forward(rectangle.height)
+                turtle_t.left(90)
+            turtle_t.hideturtle()
+
+        for square in list_squares:
+            turtle_t.color(list_colors[random.randrange(0, 8)])
+            turtle_t.showturtle()
+            turtle_t.up()
+            turtle_t.goto(square.x, square.y)
+            turtle_t.down()
+            for i in range(2):
+                turtle_t.forward(square.width)
+                turtle_t.left(90)
+                turtle_t.forward(square.height)
+                turtle_t.left(90)
+            turtle_t.hideturtle()
+        turtle.done()
