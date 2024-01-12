@@ -10,9 +10,9 @@ if __name__ == "__main__":
                            passwd=sys.argv[2], db=sys.argv[3])
     cur = conn.cursor()
     cur.execute("""SELECT cities.name FROM cities
-    WHERE cities.state_id =
-    (SELECT states.id FROM states
-    WHERE name = BINARY (%s))""", (sys.argv[4],))
+    INNER JOIN states
+    ON states.id=cities.state_id
+    WHERE states.name=%s""", (sys.argv[4],))
     rows = cur.fetchall()
     for i, row in enumerate(rows):
         for item in row:
