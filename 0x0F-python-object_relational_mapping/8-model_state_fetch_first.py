@@ -18,5 +18,5 @@ if __name__ == "__main__":
     if instance:
         print("{}: {}".format(instance.id, instance.name))
     else:
-        print()
+        print("Nothing")
     session.close()
