@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-this program prints the State object with the name passed as argument from the database hbtn_0e_6_usa.
+this program prints the State object with the name passed
+as argument from the database hbtn_0e_6_usa.
 """
 import sys
 from sqlalchemy.orm import sessionmaker
@@ -14,9 +15,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    instance = session.query(State).filter(State.name == '{}'.format(sys.argv[4]))
+    instance = session.query(State).filter(State.name == '{}'.format(
+        sys.argv[4]))
     try:
         print("{:d}".format(instance[0].id))
-    except:
+    except Exception:
         print("Not found")
     session.close()
