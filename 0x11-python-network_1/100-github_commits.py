@@ -8,7 +8,10 @@ if __name__ == "__main__":
         'https://api.github.com/repos/{}/{}/commits'.format(
             sys.argv[2], sys.argv[1]))
     objs = res.json()
-    for i in range(10):
-        print("{}: {}".format(
-            objs[i].get('sha'), objs[i].get(
-                'commit').get('author').get('name')))
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                objs[i].get('sha'), objs[i].get(
+                    'commit').get('author').get('name')))
+    except IndexError:
+        pass
