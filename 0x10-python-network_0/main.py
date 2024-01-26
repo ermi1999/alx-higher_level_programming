@@ -2,7 +2,7 @@
 """ Test function find_peak """
 find_peak = __import__('6-peak').find_peak
 
-a = [1, 2, 3, 4, 5]
+a = [5, 4, 3, 2, 1]
 answers = [5]
 
 for i in range(100):
