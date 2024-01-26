@@ -9,7 +9,12 @@ def find_peak(list_of_integers):
     peaks = []
     i = 0
     while i < len(list_of_integers):
-        if list_of_integers[i] >= list_of_integers[i - 1] and \
+        if i == len(list_of_integers) - 1:
+            if list_of_integers[i] >= list_of_integers[i - 1] and \
+                    list_of_integers[i] >= list_of_integers[0]:
+                peaks.append(list_of_integers[i])
+                i += 2
+        elif list_of_integers[i] >= list_of_integers[i - 1] and \
                 list_of_integers[i] >= list_of_integers[i + 1]:
             peaks.append(list_of_integers[i])
             i += 2
