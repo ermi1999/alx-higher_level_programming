@@ -15,4 +15,7 @@ def find_peak(list_of_integers):
             i += 2
         else:
             i += 1
-    return max(peaks)
+    if len(peaks) > 0:
+        return max(peaks)
+    else:
+        return None
