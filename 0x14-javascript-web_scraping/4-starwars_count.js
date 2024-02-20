@@ -9,7 +9,7 @@ request(process.argv[2], function (err, res, body) {
   const results = JSON.parse(body).results;
   for (let i = 0; i < results.length; i++) {
     const characters = results[i].characters;
-    for (let j = 0; j < characters.length; j++){
+    for (let j = 0; j < characters.length; j++) {
       const character = characters[j];
       const Id = character.split('/')[5];
       if (Id === '18') {
